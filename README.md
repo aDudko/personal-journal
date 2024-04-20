@@ -1,1 +1,1 @@
-# personal-jpurnal
+# personal-journal
