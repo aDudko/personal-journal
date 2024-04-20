@@ -1,4 +1,4 @@
-package ru.dudko.project.personal_journal.controllers;
+package ru.dudko.project.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.dudko.project.personal_journal.dto.PostDto;
-import ru.dudko.project.personal_journal.service.PostService;
+import ru.dudko.project.dto.PostDto;
+import ru.dudko.project.service.PostService;
 
 import java.util.List;
 

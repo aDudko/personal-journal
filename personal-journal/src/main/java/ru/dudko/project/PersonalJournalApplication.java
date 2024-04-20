@@ -1,4 +1,4 @@
-package ru.dudko.project.personal_journal;
+package ru.dudko.project;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

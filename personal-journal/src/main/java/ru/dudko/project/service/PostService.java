@@ -1,12 +1,12 @@
-package ru.dudko.project.personal_journal.service;
+package ru.dudko.project.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import ru.dudko.project.personal_journal.dto.PostDto;
-import ru.dudko.project.personal_journal.domain.model.Post;
-import ru.dudko.project.personal_journal.domain.model.PostStatus;
-import ru.dudko.project.personal_journal.domain.repository.PostRepository;
+import ru.dudko.project.domain.model.Post;
+import ru.dudko.project.domain.model.PostStatus;
+import ru.dudko.project.domain.repository.PostRepository;
+import ru.dudko.project.dto.PostDto;
 
 import java.time.LocalDateTime;
 import java.util.List;

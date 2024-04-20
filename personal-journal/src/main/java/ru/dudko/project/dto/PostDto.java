@@ -1,9 +1,9 @@
-package ru.dudko.project.personal_journal.dto;
+package ru.dudko.project.dto;
 
 import lombok.Builder;
 import lombok.Data;
-import ru.dudko.project.personal_journal.domain.model.Post;
-import ru.dudko.project.personal_journal.domain.model.PostStatus;
+import ru.dudko.project.domain.model.Post;
+import ru.dudko.project.domain.model.PostStatus;
 
 import java.time.LocalDateTime;
 

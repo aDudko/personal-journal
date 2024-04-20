@@ -1,4 +1,4 @@
-package ru.dudko.project.personal_journal.domain.model;
+package ru.dudko.project.domain.model;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
