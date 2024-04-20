@@ -44,7 +44,7 @@ public class Post {
     private String text;
 
     @Column(name = "status")
-    @Enumerated(EnumType.STRING)
+    @Enumerated(value = EnumType.STRING)
     private PostStatus status;
 
 }

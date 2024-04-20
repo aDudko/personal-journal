@@ -23,7 +23,7 @@ public class PostService {
         return postRepository.findAllActive()
                 .stream()
                 .map(PostDto::mapToPostDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public PostDto createPost(PostDto postDto) {
