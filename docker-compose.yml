@@ -1,9 +1,9 @@
 version: '3'
-
 services:
+
   db:
     image: postgres:latest
-    container_name: postgres-db
+    container_name: db
     restart: always
     environment:
       POSTGRES_USER: postgres
@@ -14,14 +14,31 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  app:
+  server:
     build:
       dockerfile: server/Dockerfile
-    container_name: spring-boot-app
+    container_name: server
+    image: personal-journal
     ports:
       - "8081:8081"
     depends_on:
       - db
+
+  client:
+    image: node:alpine
+    container_name: client
+    entrypoint: /bin/sh
+    command: -c "npm i && npm run dev"
+    ports:
+      - 8080:8080
+    working_dir: /srv/app
+    volumes:
+      - type: bind
+        source: ./client
+        target: /srv/app
+    tty: true
+    depends_on:
+      - server
 
 volumes:
   postgres_data:
