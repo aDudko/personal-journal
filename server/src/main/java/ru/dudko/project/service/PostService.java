@@ -38,7 +38,7 @@ public class PostService {
     public PostDto updatePost(Long id, PostDto postDto) {
         Post oldPost = postRepository.findById(id).orElseThrow();
         oldPost.setTitle(postDto.getTitle());
-        oldPost.setChangeDate(LocalDateTime.now());
+        oldPost.setChangeDate(postDto.getDate());
         oldPost.setTag(postDto.getTag());
         oldPost.setText(postDto.getText());
         return PostDto.mapToPostDto(postRepository.save(oldPost));

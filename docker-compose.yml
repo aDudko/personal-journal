@@ -30,7 +30,7 @@ services:
     entrypoint: /bin/sh
     command: -c "npm i && npm run dev"
     ports:
-      - 8080:8080
+      - "8080:8080"
     working_dir: /srv/app
     volumes:
       - type: bind

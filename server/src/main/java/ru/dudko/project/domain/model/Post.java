@@ -35,7 +35,7 @@ public class Post {
     private LocalDateTime createDate;
 
     @Column(name = "change_date")
-    private LocalDateTime changeDate;
+    private String changeDate;
 
     @Column(name = "tag")
     private String tag;

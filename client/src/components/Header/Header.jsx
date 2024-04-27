@@ -1,6 +1,5 @@
 import Logo from '../Logo/Logo';
 
-
 function Header() {
 	return (
 		<>

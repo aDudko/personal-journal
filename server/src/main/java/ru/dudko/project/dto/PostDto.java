@@ -16,12 +16,11 @@ import java.time.LocalDateTime;
 @Builder
 public class PostDto {
 
+    private Long id;
+
     private String title;
 
-    @JsonFormat(pattern = "dd.MM.yyyy HH:mm")
-    @JsonSerialize(using = LocalDateTimeSerializer.class)
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    private LocalDateTime date;
+    private String date;
 
     private String tag;
 
@@ -29,6 +28,7 @@ public class PostDto {
 
     public static PostDto mapToPostDto(Post post) {
         return PostDto.builder()
+                .id(post.getId())
                 .title(post.getTitle())
                 .date(post.getChangeDate())
                 .tag(post.getTag())
@@ -40,7 +40,7 @@ public class PostDto {
         return Post.builder()
                 .title(postDto.getTitle())
                 .createDate(LocalDateTime.now())
-                .changeDate(LocalDateTime.now())
+                .changeDate(postDto.getDate())
                 .tag(postDto.getTag())
                 .text(postDto.getText())
                 .status(PostStatus.CREATED)
