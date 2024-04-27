@@ -26,7 +26,7 @@ function App() {
 	const [selectedPost, setSelectedPost] = useState(null);
 	// Pagination
 	const [currentPage, setCurrentPage] = useState(1);
-	const [postsPerPage] = useState(4);
+	const [postsPerPage] = useState(3);
 	const lastPostsIndex = currentPage * postsPerPage;
 	const firstPostIndex = lastPostsIndex - postsPerPage;
 	const currentPost = posts.slice(firstPostIndex, lastPostsIndex);

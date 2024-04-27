@@ -6,3 +6,5 @@
 
 <p>For a quick start, use the <code>docker-compose up</code> command in terminal
 and get <code>localhost:8080</code> in browser.</p>
+
+![img.png](img.png)
