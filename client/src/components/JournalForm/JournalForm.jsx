@@ -8,9 +8,9 @@ import Input from '../Input/Input';
 function JournalForm({ onSubmit, data, onDelete }) {
 	const [formState, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
 	const { isValid, isFormReadyToSubmit, values } = formState;
-	const titleRef = useRef();
-	const dateRef = useRef();
-	const textRef = useRef();
+	const titleRef= useRef();
+	const dateRef= useRef();
+	const textRef= useRef();
 
 	const focusError = (isValid) => {
 		switch(true) {
@@ -29,7 +29,6 @@ function JournalForm({ onSubmit, data, onDelete }) {
 	useEffect(() => {
 		if (!data) {
 			dispatchForm({ type: 'CLEAR' });
-			dispatchForm({ type: 'SET_VALUE', payload: { }});
 		}
 		dispatchForm({ type: 'SET_VALUE', payload: { ...data }});
 	}, [data]);
@@ -51,13 +50,8 @@ function JournalForm({ onSubmit, data, onDelete }) {
 		if (isFormReadyToSubmit) {
 			onSubmit(values);
 			dispatchForm({ type: 'CLEAR' });
-			dispatchForm({ type: 'SET_VALUE', payload: { }});
 		}
 	}, [isFormReadyToSubmit, values, onSubmit]);
-
-	useEffect(() => {
-		dispatchForm({ type: 'SET_VALUE', payload: { }});
-	}, []);
 
 	const onChange = (e) => {
 		dispatchForm({ type: 'SET_VALUE', payload: { [e.target.name]: e.target.value }});
@@ -71,7 +65,6 @@ function JournalForm({ onSubmit, data, onDelete }) {
 	const deleteJournalItem = () => {
 		onDelete(data.id);
 		dispatchForm({ type: 'CLEAR' });
-		dispatchForm({ type: 'SET_VALUE', payload: { }});
 	};
 
 	return (

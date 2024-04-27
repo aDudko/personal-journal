@@ -1,14 +1,14 @@
 export const INITIAL_STATE = {
 	isValid: {
-		text: true,
 		title: true,
-		date: true
+		date: true,
+		text: true
 	},
 	values: {
-		text: '',
 		title: '',
 		date: '',
-		tag: ''
+		tag: '',
+		text: ''
 	},
 	isFormReadyToSubmit: false
 };

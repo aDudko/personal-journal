@@ -57,6 +57,9 @@ function App() {
 			console.error('Error deleting: ', error);
 		}
 		setPosts((await server.get('/post/list')).data);
+		if (((posts.length-1) % postsPerPage) === 0) {
+			setCurrentPage(currentPage - 1);
+		}
 	};
 
 	return (
@@ -66,7 +69,7 @@ function App() {
 					<Header />
 					<JournalAddButton clearForm={() => setSelectedPost(null)} />
 					<JournalList posts={mapPosts(currentPost)} setPost={setSelectedPost} />
-					<Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate} currentPage={currentPage} />
+					<Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate} currentPage={currentPage} setCurrentPage={setCurrentPage} />
 				</LeftPanel>
 				<Body>
 					<JournalForm onSubmit={createOrUpdatePost} onDelete={deletePost} data={selectedPost} />
