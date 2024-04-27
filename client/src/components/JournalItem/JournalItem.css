@@ -13,6 +13,7 @@
 }
 
 .journal-item__date {
+    min-width: 90px;
     color: rgba(255, 255, 255, 0.40);
     font-size: 16px;
     font-style: normal;
@@ -26,7 +27,11 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    /* Ограничиваем длину текста*/
     overflow: hidden;
+    white-space: nowrap;
+    /* Троеточия в конце предложения */
+    text-overflow: ellipsis;
 }
 
 .journal-item__body {

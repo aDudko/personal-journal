@@ -7,6 +7,7 @@ import JournalList from './components/JournalList/JournalList';
 import JournalForm from './components/JournalForm/JournalForm';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
+import Pagination from "./components/Pagination/Pagination.jsx";
 
 const server = axios.create({
 	baseURL: 'http://localhost:8081'
@@ -23,6 +24,13 @@ function App() {
 
 	const [posts, setPosts] = useState([]);
 	const [selectedPost, setSelectedPost] = useState(null);
+	// Pagination
+	const [currentPage, setCurrentPage] = useState(1);
+	const [postsPerPage] = useState(4);
+	const lastPostsIndex = currentPage * postsPerPage;
+	const firstPostIndex = lastPostsIndex - postsPerPage;
+	const currentPost = posts.slice(firstPostIndex, lastPostsIndex);
+	const paginate = pageNumber => setCurrentPage(pageNumber);
 
 	useEffect(() => {
 		const getPosts = async () => {
@@ -56,11 +64,12 @@ function App() {
 			<div className='app'>
 				<LeftPanel>
 					<Header />
-					<JournalAddButton clearForm={() => setSelectedPost(null)}/>
-					<JournalList posts={mapPosts(posts)} setPost={setSelectedPost} />
+					<JournalAddButton clearForm={() => setSelectedPost(null)} />
+					<JournalList posts={mapPosts(currentPost)} setPost={setSelectedPost} />
+					<Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate} currentPage={currentPage} />
 				</LeftPanel>
 				<Body>
-					<JournalForm onSubmit={createOrUpdatePost} onDelete={deletePost} data={selectedPost}/>
+					<JournalForm onSubmit={createOrUpdatePost} onDelete={deletePost} data={selectedPost} />
 				</Body>
 			</div>
 		</>
