@@ -7,7 +7,7 @@ import JournalList from './components/JournalList/JournalList';
 import JournalForm from './components/JournalForm/JournalForm';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
-import Pagination from "./components/Pagination/Pagination.jsx";
+import Pagination from './components/Pagination/Pagination.jsx';
 
 const server = axios.create({
 	baseURL: 'http://localhost:8081'
