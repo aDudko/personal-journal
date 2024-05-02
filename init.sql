@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXIST personal-journal;
+
 CREATE TABLE IF NOT EXISTS post (
     id          bigint default nextval('post_id_seq'::regclass) not null,
     title       text,
@@ -10,4 +12,3 @@ CREATE TABLE IF NOT EXISTS post (
 
 ALTER TABLE IF EXISTS post
     owner to postgres;
-
