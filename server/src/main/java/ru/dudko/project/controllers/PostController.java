@@ -4,7 +4,10 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,6 +36,7 @@ public class PostController {
 
     @Operation(tags = "post", summary = "Create post")
     @PostMapping(produces = "application/json")
+    @ResponseStatus(HttpStatus.CREATED)
     public PostDto createPost(@RequestBody PostDto postDto) {
         return postService.createPost(postDto);
     }
@@ -44,7 +48,7 @@ public class PostController {
     }
 
     @Operation(tags = "post", summary = "Update post")
-    @PostMapping(value = "/{id}", produces = "application/json")
+    @PutMapping(value = "/{id}", produces = "application/json")
     public PostDto updatePost(@PathVariable Long id, @RequestBody PostDto postDto) {
         return postService.updatePost(id, postDto);
     }

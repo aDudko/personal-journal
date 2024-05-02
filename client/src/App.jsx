@@ -41,12 +41,18 @@ function App() {
 
 	const createOrUpdatePost = async (postDto) => {
 		let data = {...postDto};
-		try {
-			let url = '/post'.concat(postDto.id ? ('/' + postDto.id) : '');
-			await server.post(url, data);
-		} catch (error) {
-			console.error('Error creating or updating: ', error);
-		}
+		if (postDto.id) {
+			try {
+				await server.put(`/post/${postDto.id}`, data);
+			} catch (error) {
+				console.error('Error updating: ', error);
+			}
+		} else
+			try {
+				await server.post('/post', data);
+			} catch (error) {
+				console.error('Error creating: ', error);
+			}
 		setPosts((await server.get('/post/list')).data);
 	};
 
