@@ -1,1 +1,1 @@
-CREATE DATABASE IF NOT EXIST personal-journal;
+CREATE DATABASE "personal-journal";

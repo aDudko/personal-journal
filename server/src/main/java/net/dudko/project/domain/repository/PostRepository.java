@@ -1,9 +1,9 @@
-package ru.dudko.project.domain.repository;
+package net.dudko.project.domain.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import ru.dudko.project.domain.model.Post;
+import net.dudko.project.domain.entity.Post;
 
 import java.util.List;
 

@@ -61,7 +61,7 @@
                 <version>${spring.version}</version>
                 <configuration>
                     <excludeDockerCompose>false</excludeDockerCompose>
-                    <mainClass>ru.dudko.project.PersonalJournalApplication</mainClass>
+                    <mainClass>net.dudko.project.PersonalJournalApplication</mainClass>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
