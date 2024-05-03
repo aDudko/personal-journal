@@ -8,7 +8,8 @@
         <version>3.2.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>ru.dudko.project</groupId>
+
+    <groupId>net.dudko.project</groupId>
     <artifactId>personal-journal</artifactId>
     <version>0.0.1</version>
     <name>personal-journal</name>
