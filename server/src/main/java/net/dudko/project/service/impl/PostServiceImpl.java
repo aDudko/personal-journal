@@ -1,5 +1,6 @@
 package net.dudko.project.service.impl;
 
+import lombok.AllArgsConstructor;
 import net.dudko.project.domain.mapper.PostMapper;
 import net.dudko.project.domain.entity.Post;
 import net.dudko.project.domain.entity.PostStatus;
@@ -7,21 +8,16 @@ import net.dudko.project.domain.repository.PostRepository;
 import net.dudko.project.model.dto.PostDto;
 import net.dudko.project.model.exception.PostException;
 import net.dudko.project.service.PostService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@AllArgsConstructor
 @Service
 public class PostServiceImpl implements PostService {
 
     private final PostRepository postRepository;
-
-    @Autowired
-    public PostServiceImpl(PostRepository postRepository) {
-        this.postRepository = postRepository;
-    }
 
     public List<PostDto> getPosts() {
         var posts = postRepository.findAllActive();
