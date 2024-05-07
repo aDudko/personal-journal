@@ -14,7 +14,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(PostException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    public ResponseEntity<ErrorDetails> handleAccountException(PostException exception, WebRequest request) {
+    public ResponseEntity<ErrorDetails> handlePostException(PostException exception, WebRequest request) {
         ErrorDetails errorDetails = new ErrorDetails(LocalDateTime.now(),
                 exception.getMessage(),
                 request.getDescription(false),
